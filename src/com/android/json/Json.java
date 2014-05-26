@@ -12,25 +12,30 @@ import android.widget.*;
 public class Json extends Activity {
 	private Button btAceptar;
 	private Button bt1;
+	private Button btJson;
 	private ConexionABaseDeDatos bd = new ConexionABaseDeDatos(this);
 
 	TextView lbl;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	
 		setContentView(R.layout.activity_json);
 		btAceptar =  (Button) findViewById(R.id.btAceptar);
 		btAceptar.setOnClickListener(new OnClickListener(){
             public void onClick(View arg0) {
             	rellenarTablaCanales();
-            	
             }
-            });
+          });
 		bt1 =  (Button) findViewById(R.id.bt1);
 		bt1.setOnClickListener(new OnClickListener(){
             public void onClick(View arg0) {
              	leerCanales();
+            }
+            });
+		btJson =  (Button) findViewById(R.id.btJson);
+		btJson.setOnClickListener(new OnClickListener(){
+            public void onClick(View arg0) {
+            	leerJson();
             }
             });
 		
@@ -57,11 +62,16 @@ public class Json extends Activity {
 	     bd.insertarCanal(1, "Guatevision" );
 	     bd.insertarCanal(2, "Fox Sports");
 	     bd.insertarCanal(3, "History Channel");
-	     bd.insertarCanal(4, "National Geographic");
+	     bd.insertarCanal(4, "National Geographic Channel");
+	     bd.insertarCanal(5, "Cartoon Network");
+	     bd.insertarCanal(6, "Trece Vision");
 	     MessageBox("Datos Rellenados");
 	     this.bd.cerrar();
+	     
 	}
-
-
-
+	private void leerJson() {
+		JSONManager getJson =  new JSONManager();
+		
+		
+	}
 }

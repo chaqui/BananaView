@@ -35,4 +35,13 @@
         android:layout_marginLeft="28dp"
         android:text="@string/leer" />
 
+    <Button
+        android:id="@+id/btJson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lbl"
+        android:layout_below="@+id/btAceptar"
+        android:layout_marginTop="29dp"
+        android:text="@string/json" />
+
 </RelativeLayout>

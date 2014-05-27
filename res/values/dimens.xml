@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_standard">25sp</dimen>
+    <dimen name="activity_marge_horizontal">5dp</dimen>
+    <dimen name="activity_marge_vertical">16dp</dimen>
+
+</resources>

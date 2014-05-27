@@ -4,74 +4,52 @@ import com.android.bananaView.R;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.*;
+import android.net.NetworkInfo;
+import android.net.ConnectivityManager;
 
 public class Json extends Activity {
-	private Button btAceptar;
-	private Button bt1;
-	private Button btJson;
-	private ConexionABaseDeDatos bd = new ConexionABaseDeDatos(this);
 
 	TextView lbl;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_json);
-		btAceptar =  (Button) findViewById(R.id.btAceptar);
-		btAceptar.setOnClickListener(new OnClickListener(){
-            public void onClick(View arg0) {
-            	rellenarTablaCanales();
-            }
-          });
-		bt1 =  (Button) findViewById(R.id.bt1);
-		bt1.setOnClickListener(new OnClickListener(){
-            public void onClick(View arg0) {
-             	leerCanales();
-            }
-            });
-		btJson =  (Button) findViewById(R.id.btJson);
-		btJson.setOnClickListener(new OnClickListener(){
-            public void onClick(View arg0) {
-            	leerJson();
-            }
-            });
-		
+
+		if (checkConnectivity()) {
+			Inicio begin = new Inicio(this);
+			begin.almacenar();
+		} else {
+			this.MessageBox("No se puede conectar a internet para actualizar");
+		}
+
 	}
-	public void MessageBox(String message){
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
-    }
+
+	private boolean checkConnectivity() {
+		boolean enabled = true;
+
+		ConnectivityManager connectivityManager = (ConnectivityManager) this
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+
+		if ((info == null || !info.isConnected() || !info.isAvailable())) {
+			enabled = false;
+		}
+		return enabled;
+	}
+
+	public void MessageBox(String message) {
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_json, menu);
 		return true;
 	}
-	
-	private void leerCanales(){
-		this.bd.abrir();
-		lbl = (TextView)findViewById(R.id.lbl);
-		lbl.setText(this.bd.leerCanal());
-		this.bd.cerrar();
-	}
-	private void rellenarTablaCanales(){
-		this.bd.abrir();
-		this.bd.eliminarTodosLosCanales();
-	     bd.insertarCanal(1, "Guatevision" );
-	     bd.insertarCanal(2, "Fox Sports");
-	     bd.insertarCanal(3, "History Channel");
-	     bd.insertarCanal(4, "National Geographic Channel");
-	     bd.insertarCanal(5, "Cartoon Network");
-	     bd.insertarCanal(6, "Trece Vision");
-	     MessageBox("Datos Rellenados");
-	     this.bd.cerrar();
-	     
-	}
-	private void leerJson() {
-		JSONManager getJson =  new JSONManager();
-		
-		
-	}
+
 }

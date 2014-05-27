@@ -7,5 +7,19 @@
     <string name="aceptar">aceptar</string>
     <string name="leer">leer</string>
     <string name="json">json</string>
+    <string name="titulo">Canales de Television</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="title_activity_primera">Primera</string>
+    <string name="guatevision">GUATEVISION</string>
+    <string name="foxSports">FOX SPORTS</string>
+    <string name="History">HISTORY CHANNEL</string>
+    <string name="NatGeo">NATIONAL GEOGRAPHIC CHANNEL</string>
+    <string name="CartoonNetwork">CARTOON NETWORK</string>
+    <string name="treceVision">TRECE VISION</string>
+    <string name="Mtv">MTV</string>
+    <string name="cineCanal">CINE CANAL</string>
+    <string name="theFilmZone">THE FILM ZONE</string>
+    <string name="warnerChannel">WARNER CHANNEL</string>
 
 </resources>

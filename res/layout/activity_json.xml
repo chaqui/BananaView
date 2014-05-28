@@ -33,6 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="17dp"
+                     android:textColor="#474843"
                     android:text="@string/guatevision"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </TableRow>
@@ -44,6 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                     android:textColor="#474843"
                     android:text="@string/foxSports"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </TableRow>
